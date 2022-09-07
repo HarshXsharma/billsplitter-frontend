@@ -1,0 +1,44 @@
+HOMEPAGE
+
+import { Link } from "react-router-dom";
+import { Ledger } from "../ledger/pages/Ledger";
+const group_name = 'awesome';
+      <Grid container alignItems="center" justifyContent="center" direction="column" maxWidth="sm" style={{ minHeight: '80vh' }}>
+<Link style={{textDecoration: 'none'}} to="/CreateGroup">
+            <Button
+                variant="contained"
+                size="large"
+                style={{ marginButton: "2em" }}
+            >
+                + CREATE GROUP
+            </Button>
+          </Link>
+<Link style={{textDecoration: 'none', color:"white"}} to={{pathname: `/GroupLogin/${group_name}`}}>
+                Already have a group?
+                </Link>
+                
+LOGIN:
+
+import { Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+<Link style={{textDecoration: 'none',color:"white"}} to={{pathname: `/Ledger/${group_name}`}}>
+          <Button variant="contained">
+            LOGIN
+          </Button>
+          </Link>
+
+APP:
+
+<Routes>
+        <Route path='/' element = { <Homepage/> } exact />
+        <Route path='/CreateGroup' element = { <CreateGroup/> } exact />
+        <Route path='/GroupLogin/:group_name' element = { <GroupLogin/> } exact />
+        <Route path='/Ledger/:groupName' element = { <Ledger /> }/>
+      </Routes>
+      
+INDEX:
+<React.StrictMode>
+    <BrowserRouter>
+    <App />
+    </BrowserRouter>
+  </React.StrictMode>
