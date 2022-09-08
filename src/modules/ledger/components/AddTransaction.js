@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { FormControl, Typography } from "@mui/material";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext, createContext } from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -35,6 +35,7 @@ export const AddTransaction = ({group_name}) => {
             const result = await API_CLIENT.post(URL, transactionObject);
             if(result && result.data.message){
                 console.log(result.data.message);
+                window.location.reload();
             }
         }catch(err){
             console.log('Error in adding transaction ', err);
